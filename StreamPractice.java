@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -17,5 +18,7 @@ public class StreamPractice {
         resultantDuplicates.forEach(System.out::println);
         System.out.println("Duplicates approach 2");
         list.stream().filter(n -> list.stream().filter(i->i==n).count() > 1).distinct().forEach(System.out::println);
+        System.out.println("Duplicates approach 3");
+        list.stream().filter(n-> Collections.frequency(list,n)>1).distinct().toList().forEach(System.out::println);
     }
 }
